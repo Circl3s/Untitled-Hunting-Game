@@ -1,0 +1,98 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Scripts/World.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/CachedProp.gd" type="Script" id=2]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.25, 1, 1 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.25, 1, 1 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 1, 1, 0.25 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 1, 1, 0.25 )
+
+[sub_resource type="BoxShape" id=8]
+
+[sub_resource type="CubeMesh" id=9]
+
+[sub_resource type="SpatialMaterial" id=10]
+albedo_color = Color( 0, 0.929412, 1, 1 )
+
+[sub_resource type="Environment" id=7]
+ambient_light_color = Color( 0.133333, 0.133333, 0.133333, 1 )
+adjustment_saturation = 0.01
+
+[sub_resource type="SpatialMaterial" id=11]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[node name="World" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Plane" type="StaticBody" parent="."]
+transform = Transform( 100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0 )
+collision_layer = 3
+
+[node name="CollisionShape" type="CollisionShape" parent="Plane"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Plane"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="PlaneBorder" type="StaticBody" parent="."]
+input_ray_pickable = false
+
+[node name="Border-X+" type="CollisionShape" parent="PlaneBorder"]
+transform = Transform( 0.0296668, -1, 0, 100, 0.000296668, 0, 0, 0, 100, 100, 0, 0 )
+shape = SubResource( 3 )
+
+[node name="Border-X-" type="CollisionShape" parent="PlaneBorder"]
+transform = Transform( -0.000437114, -1, 0, 100, -4.37114e-10, 0, 0, 0, 100, -100, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="Border-Z+" type="CollisionShape" parent="PlaneBorder"]
+transform = Transform( 100, 0, 0, 0, -4.37114e-10, -100, 0, 1, -0.000437114, 0, 0, 100 )
+shape = SubResource( 5 )
+
+[node name="Border-Z-" type="CollisionShape" parent="PlaneBorder"]
+transform = Transform( 100, 0, 0, 0, -4.37114e-10, -100, 0, 1, -0.000437114, 0, 0, -100 )
+shape = SubResource( 6 )
+
+[node name="Cube" type="StaticBody" parent="."]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 65.2855, 4, 67.0351 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Cube"]
+shape = SubResource( 8 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Cube"]
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 7 )
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.00336853, 0.999994, 0, -0.999994, -0.00336853, 0, 20, 0 )
+shadow_enabled = true
+spot_range = 100.0
+spot_angle = 30.0
+
+[node name="MovableCube" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.7504, 4, 15.4308 )
+script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="MovableCube"]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
+shape = SubResource( 8 )
+
+[node name="MeshInstance" type="MeshInstance" parent="MovableCube/CollisionShape"]
+mesh = SubResource( 9 )
+material/0 = SubResource( 11 )

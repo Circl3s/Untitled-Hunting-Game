@@ -1,0 +1,244 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Menu.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Lobby.gd" type="Script" id=2]
+[ext_resource path="res://Font/IBM_Plex_Regular_20.tres" type="DynamicFont" id=3]
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VersionText" type="RichTextLabel" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -16.0
+margin_right = 1024.0
+text = "Prototype v1"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lobby" type="Control" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Button" parent="Lobby"]
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -192.0
+margin_top = -118.0
+margin_right = -64.0
+margin_bottom = -88.0
+disabled = true
+text = "Start"
+
+[node name="Leave" type="Button" parent="Lobby"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 64.0
+margin_top = -118.0
+margin_right = 192.0
+margin_bottom = -88.0
+text = "Leave"
+
+[node name="PlayerList" type="Control" parent="Lobby"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -250.0
+margin_right = 100.0
+margin_bottom = 150.0
+
+[node name="Label_1" type="Label" parent="Lobby/PlayerList"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -100.0
+margin_top = 25.0
+margin_right = 100.0
+margin_bottom = 75.0
+custom_fonts/font = ExtResource( 3 )
+text = "Player"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_2" type="Label" parent="Lobby/PlayerList"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -100.0
+margin_top = 125.0
+margin_right = 100.0
+margin_bottom = 175.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.133333, 0.133333, 0.133333, 1 )
+text = "No player"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_3" type="Label" parent="Lobby/PlayerList"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -100.0
+margin_top = 225.0
+margin_right = 100.0
+margin_bottom = 275.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.133333, 0.133333, 0.133333, 1 )
+text = "No Player"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_4" type="Label" parent="Lobby/PlayerList"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -100.0
+margin_top = 325.0
+margin_right = 100.0
+margin_bottom = 375.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.133333, 0.133333, 0.133333, 1 )
+text = "No Player"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HostButton" type="Button" parent="Start"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = -28.0
+margin_right = 64.0
+margin_bottom = -8.0
+text = "Host"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Join" type="Control" parent="Start"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = 4.0
+margin_right = 100.0
+margin_bottom = 28.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="Start/Join"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -12.0
+margin_right = 129.0
+margin_bottom = 12.0
+text = "127.0.0.1"
+placeholder_text = "127.0.0.1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Start/Join"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -66.0
+margin_top = -10.0
+margin_bottom = 10.0
+text = "Join"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ErrorLabel" type="Label" parent="Start/Join"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -125.0
+margin_top = 48.0
+margin_right = 125.0
+margin_bottom = 62.0
+custom_colors/font_color = Color( 1, 0.184314, 0.184314, 1 )
+text = "ERROR: Failed to connect to Server"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Username" type="LineEdit" parent="Start"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = 35.0
+margin_right = 100.0
+margin_bottom = 59.0
+text = "Player"
+
+[node name="Color" type="ColorRect" parent="Start/Username"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 4.65515
+margin_top = -12.0
+margin_right = 28.6552
+margin_bottom = 12.0
+
+[connection signal="visibility_changed" from="Lobby" to="Lobby" method="_visibility_chnage"]
+[connection signal="pressed" from="Lobby/Start" to="Lobby" method="_start_btn"]
+[connection signal="pressed" from="Lobby/Leave" to="Lobby" method="_leave_btn"]
+[connection signal="pressed" from="Start/HostButton" to="." method="_host_btn"]
+[connection signal="pressed" from="Start/Join/Button" to="." method="_join_btn"]
+[connection signal="text_changed" from="Start/Username" to="." method="_username_changed"]
