@@ -35,8 +35,7 @@ func start(is_host, address = "", port = DEFAULT_PORT):
 		peer.create_server(port, MAX_PLAYERS)
 	else:
 		peer.create_client(address, port)
-	var tree = get_tree()
-	tree.network_peer = peer
+	get_tree().network_peer = peer
 	if is_host:
 		emit_signal("connected", 1) # TODO: maybe something else xD
 		#$"../Menu".show_lobby()
@@ -68,7 +67,7 @@ func chnage_username(name):
 	# TODO: update username correctly depending on scene
 
 func begin_start():
-	get_tree().set_refuse_new_network_connections(true) # TODO: unset when returning to lobby
+	get_tree().refuse_new_network_connections = true # TODO: unset when returning to lobby
 	rpc("setup_game")
 
 # Signals

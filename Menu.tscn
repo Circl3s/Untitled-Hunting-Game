@@ -225,6 +225,9 @@ margin_top = 35.0
 margin_right = 100.0
 margin_bottom = 59.0
 text = "Player"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Color" type="ColorRect" parent="Start/Username"]
 anchor_left = 1.0
@@ -235,6 +238,9 @@ margin_left = 4.65515
 margin_top = -12.0
 margin_right = 28.6552
 margin_bottom = 12.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="visibility_changed" from="Lobby" to="Lobby" method="_visibility_chnage"]
 [connection signal="pressed" from="Lobby/Start" to="Lobby" method="_start_btn"]

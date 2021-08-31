@@ -5,3 +5,6 @@ func _ready():
 
 func reveal():
 	queue_free()
+
+func hide():
+	pass
